@@ -1,0 +1,18 @@
+version: 1
+transformation:
+    remote: false
+
+scheduler:
+    composer:
+        project_id: ""
+        bucket_name: ""
+        service_account_file: ""
+    dag:
+        name: dex_default_dag
+        start_date: datetime.now() - timedelta(days=2)
+        schedule_interval: '@daily'
+        credential_var: DEX_SERVER_API_KEY
+
+dex:
+    url: http://0.0.0.0:9090
+    workspace: "7874d1db-5de7-431f-b567-5a8b980654cc"
